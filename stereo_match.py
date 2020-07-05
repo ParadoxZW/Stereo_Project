@@ -9,6 +9,7 @@ Resulting .ply file cam be easily viewed using MeshLab ( http://meshlab.sourcefo
 # Python 2/3 compatibility
 from __future__ import print_function
 
+import sys
 import numpy as np
 import cv2 as cv
 from random import randint
@@ -36,8 +37,9 @@ def write_ply(fn, verts, colors):
 
 def main():
     print('loading images...')
-    imgL = cv.imread('match_input/left_rectified.png')
-    imgR = cv.imread('match_input/right_rectified.png')
+    name1, name2 = sys.argv[1:]
+    imgL = cv.imread(name1)  # 'match_input/left_rectified.png'
+    imgR = cv.imread(name2)  # 'match_input/right_rectified.png'
 
     # disparity range is tuned for 'aloe' image pair
     window_size = 3

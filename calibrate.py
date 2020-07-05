@@ -38,7 +38,7 @@ def main():
     if not img_mask:
         img_mask = './left/left??.jpg'  # default
     else:
-        img_mask = img_mask[0]
+        img_mask = './' + img_mask + '/' + img_mask + '??.jpg'
 
     img_names = glob(img_mask)
     debug_dir = args.get('--debug')

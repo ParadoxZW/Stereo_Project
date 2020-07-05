@@ -1,9 +1,10 @@
-import cv2
+import cv2, sys
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
-imgl = cv2.imread('left/left01.jpg', 0)
-imgr = cv2.imread('right/right01.jpg', 0)
+name = sys.argv[1]
+imgl = cv2.imread('left/left' + name + '.jpg', 0)
+imgr = cv2.imread('right/right' + name + '.jpg', 0)
 h, w = imgl.shape
 # help(cv2.stereoRectify)
 cml = np.load('cameraMatrix1.npy')

@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 import os
+import sys
 from utils.homography import get_homography
 from utils.intrinsics import get_intrinsics_param
 from utils.extrinsics import get_extrinsics_param
@@ -29,7 +30,8 @@ def calibrate(pic_points, real_points_x_y):
  
  
 if __name__ == "__main__":
-    file_dir = r'./left'
+    file_dir = sys.argv[1]
+    file_dir = r'./' + file_dir
     pic_name = os.listdir(file_dir)
  
     # 由于棋盘为二维平面，设定世界坐标系在棋盘上，一个单位代表一个棋盘宽度，产生世界坐标系三维坐标
